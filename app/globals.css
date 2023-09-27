@@ -25,3 +25,16 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.wrapper {
+  @apply p-4 sm:p-8 md:p-16;
+}
+.input {
+  @apply px-4 py-2 border border-blue-600 text-white outline-none rounded-lg bg-blue-950 bg-opacity-80 transition duration-200 hover:bg-opacity-90 focus:bg-opacity-90;
+}
+.ticket {
+  @apply cursor-pointer py-1 px-2 border rounded border-slate-500 border-dashed transition duration-200 bg-slate-600 bg-opacity-0 hover:bg-opacity-20 text-white;
+}
+.ticket.selected {
+  @apply border-blue-600 bg-blue-950 bg-opacity-80 border-dotted;
+}
