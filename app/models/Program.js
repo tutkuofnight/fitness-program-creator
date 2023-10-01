@@ -1,12 +1,23 @@
+import { useState } from "react"
 class Item {
   constructor(name , set, count){
-    this.name = name
-    this.set = set
-    this.count = count
+    const [name, setName] = useState(name)
+    const [set, setItemSet] = useState(set)
+    const [count , setCount] = useState(count)
   }
 
   update(key , value){
-    this[key] = value
+    switch(key) {
+      case 'name': 
+        setName(value) 
+      break
+      case 'set':
+        setItemSet(value)
+      break
+      case 'count':
+        setCount(value)
+      break
+    }
   }
 }
 
@@ -39,6 +50,7 @@ export default class Program {
 
   createCollection(){
     this.collections.push(new Collection())
+    return this
   }
 
   removeCollection(id){

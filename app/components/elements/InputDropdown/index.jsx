@@ -30,11 +30,11 @@ export default (props) => {
 
   return (
     <div className={`relative ${status ? 'cursor-text' : 'cursor-pointer'}`} onClick={() => setStatus(true)} ref={componentRef}>
-      <div className='flex justify-between items-center px-4 py-2 w-100 border border-blue-600 bg-blue-950 bg-opacity-80 rounded-lg transition duration-200 hover:bg-opacity-90 focus:bg-opacity-90'>
+      <div className='flex gap-3 justify-between items-center px-4 py-2 w-100 border border-blue-600 bg-blue-950 bg-opacity-80 rounded-lg transition duration-200 hover:bg-opacity-90 focus:bg-opacity-90'>
         {
           status ? 
-          <div className='w-100'>
-            <input ref={inputRef} type="text" className='w-[90%] text-white bg-black border-none outline-none bg-transparent' onChange={(e) => setText(e.target.value)} autoFocus />
+          <div className='flex-1 w-[100%]'>
+            <input ref={inputRef} type="text" className='w-[100%] text-white bg-black border-none outline-none bg-transparent' onChange={(e) => setText(e.target.value)} autoFocus />
           </div> : <div>{seletectedItem ? seletectedItem : 'Search...'}</div>
         }
         <div>

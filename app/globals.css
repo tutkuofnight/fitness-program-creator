@@ -38,3 +38,7 @@ body {
 .ticket.selected {
   @apply border-blue-600 bg-blue-950 bg-opacity-80 border-dotted;
 }
+
+.create-button {
+  @apply grid place-items-center border border-dashed border-slate-400 rounded-lg p-3 cursor-pointer transition duration-200 hover:bg-slate-50 hover:bg-opacity-5;
+}

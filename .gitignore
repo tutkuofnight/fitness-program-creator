@@ -11,7 +11,10 @@
 # next.js
 /.next/
 /out/
-
+.env
+/prisma/migrations
+/prisma/*.db
+/prisma/*.db-journal
 # production
 /build
 
