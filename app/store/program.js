@@ -1,17 +1,13 @@
-import {
-  createSlice
-} from "@reduxjs/toolkit";
-import {
-  collection,
-  workoutProgramItem
-} from "@/utils/contants"
-import {
-  nanoid
-} from "nanoid"
+import { createSlice } from "@reduxjs/toolkit";
+import { collection,workoutProgramItem } from "@/utils/contants"
+import { nanoid } from "nanoid"
+
 const program = createSlice({
   name: 'program',
   initialState: {
     name: "Example Program",
+    type: 'workout',
+    isPrivate: true,
     collections: []
   },
   reducers: {
@@ -53,6 +49,17 @@ const program = createSlice({
         return collection
       })
     }
+  },
+  updateItemInCollection: (state, action) => {
+    state.collections = state.collections.map(collection => {
+      if(collection.id == action.payload.colId){
+        return {...collection , items: collection.items.map(collectionItem => {
+          if(collectionItem.id == action.payload.itemId) return {...collectionItem, [key]: value}
+          return collectionItem
+        })}
+      }
+      return collection
+    })
   }
 })
 
@@ -61,6 +68,8 @@ export const {
   updateCollection,
   removeCollection,
   addItemInCollection,
-  removeItemFromCollection
+  removeItemFromCollection,
+  updateItemInCollection
 } = program.actions
+
 export default program.reducer

@@ -3,6 +3,7 @@ import {useState , useRef , useEffect} from 'react'
 import {FaAngleDown , FaX} from 'react-icons/fa6'
 import { useDetectClickOutside } from 'react-detect-click-outside';
 import moves from '@/utils/moves'
+import styles from './input-dropdown.module.scss'
 
 export default (props) => {
   const [dropdown , setDropdown] = useState(moves)
@@ -30,7 +31,7 @@ export default (props) => {
 
   return (
     <div className={`relative ${status ? 'cursor-text' : 'cursor-pointer'}`} onClick={() => setStatus(true)} ref={componentRef}>
-      <div className='flex gap-3 justify-between items-center px-4 py-2 w-100 border border-blue-600 bg-blue-950 bg-opacity-80 rounded-lg transition duration-200 hover:bg-opacity-90 focus:bg-opacity-90'>
+      <div className={styles.inputDropdown}>
         {
           status ? 
           <div className='flex-1 w-[100%]'>

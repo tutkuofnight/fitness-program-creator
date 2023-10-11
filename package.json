@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next-auth/prisma-adapter": "^0.4.4-canary.81",
     "@prisma/client": "^5.3.1",
     "autoprefixer": "10.4.16",
     "classnames": "^2.3.2",

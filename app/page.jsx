@@ -1,10 +1,11 @@
 "use client"
 import Header from '@/components/Header'
 import Link from 'next/link'
-import {useSession , signOut, signIn} from 'next-auth/react'
-export default function Home() {
+import {useSession , signOut, signIn } from 'next-auth/react'
 
-  const {data: session} = useSession()
+export default function Home() {
+  
+  const { data:session } = useSession()
 
   return (
     <main>
@@ -19,11 +20,10 @@ export default function Home() {
         <div className="flex gap-5">
           {session && session.user && (
             <div className='text-white'>
-              <div className='text-sky-500'>{session.user.name}</div>
-              <button className='border border-dashed rounded-lg px-3 py-2' onClick={() => signOut()}>Sign Out</button>
+              <button className='border border-dashed rounded-lg px-3 py-2' onClick={() => signOut()}><span className='text-red-400'>{session.user.name}</span> Sign Out</button>
             </div>
           )}
-          <button className='border border-dashed rounded-lg px-3 py-2' onClick={() => signIn("google")}>Sign In</button>
+          {!session && <button className='border border-dashed rounded-lg px-3 py-2' onClick={() => signIn("google")}>Sign In</button>}
           <Link href='/create/training' className='border border-dashed rounded-lg px-3 py-2'>Create Training Program</Link>
           <Link href='/create/diet' className='border border-dashed rounded-lg px-3 py-2'>Create Diet Program</Link>
         </div>

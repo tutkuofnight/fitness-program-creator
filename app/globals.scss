@@ -42,3 +42,31 @@ body {
 .create-button {
   @apply grid place-items-center border border-dashed border-slate-400 rounded-lg p-3 cursor-pointer transition duration-200 hover:bg-slate-50 hover:bg-opacity-5;
 }
+
+@layer components {
+  .btn {
+    @apply bg-white shadow-white px-4 py-2 rounded-lg font-semibold text-black transition duration-200 hover:bg-slate-200;
+    box-shadow: 0px 1px 15px 0px rgba(whitesmoke, 0.7);
+
+    &.blue {
+      @apply bg-blue-500 text-white hover:bg-blue-600;
+      box-shadow: 0px 1px 15px 0px rgba(rgb(67, 152, 249), 0.7);
+    }
+
+    &.purple {
+      @apply bg-purple-500 text-white hover:bg-purple-600;
+      box-shadow: 0px 1px 15px 0px rgba(rgb(160, 47, 160), 0.7);
+    }
+    &.red {
+      @apply bg-red-500 text-white hover:bg-red-600;
+      box-shadow: 0px 1px 15px 0px rgba(crimson, 0.7);
+    }
+    &.orange {
+      @apply bg-orange-500 text-white hover:bg-orange-600;
+      box-shadow: 0px 1px 15px 0px rgba(coral, 0.7);
+    }
+  }
+  .input-dropdown {
+    
+  }
+}
