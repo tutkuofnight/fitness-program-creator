@@ -16,7 +16,7 @@ export default (props) => {
   const selectItem = async (item) => {
     await setSelectedItem(item)
     setStatus(false)
-    props.selectedData(seletectedItem)
+    props.selectedData(item)
   }
 
   useEffect(() => {

@@ -1,4 +1,23 @@
-export default [
+export const program = {
+  name: "",
+  days: [],
+  private: false,
+  collections: []
+}
+export const collection = {
+  name: "",
+  items: []
+}
+export const workoutProgramItem = {
+  name: "",
+  set: "",
+  count: ""
+}
+export const dietProgramItem = {
+  name: "",
+  type: ["gr." , "number"]
+}
+export const daylist = [
   {
     selected: true,
     name: 'Monday'
