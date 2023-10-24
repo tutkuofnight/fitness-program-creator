@@ -1,5 +1,4 @@
 import { configureStore } from "@reduxjs/toolkit"
-
 import { program } from "./program"
 
 const store = configureStore({

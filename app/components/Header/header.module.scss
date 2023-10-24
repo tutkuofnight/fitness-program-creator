@@ -1,0 +1,6 @@
+.header {
+  @apply backdrop-blur-xl h-14 z-10 flex justify-between items-center px-5 border-b-2;
+  .headerButton {
+    @apply flex items-center gap-2 border-[1.5px] rounded-lg px-3 py-1 transition duration-200 bg-transparent hover:bg-gray-400 hover:bg-opacity-10 hover:border-white;
+  }
+}

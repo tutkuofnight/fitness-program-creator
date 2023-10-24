@@ -1,33 +1,38 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { collection,workoutProgramItem } from "@/utils/contants"
+// import {createWrapper} from 'next-redux-wrapper'
+import { collection as Collection, workoutProgramItem } from "@/utils/contants"
 import { nanoid } from "nanoid"
+
+const initialState = {
+  name: "Example Program",
+  type: 'workout',
+  isPrivate: true,
+  collections: []
+}
+
 
 const program = createSlice({
   name: 'program',
-  initialState: {
-    name: "Example Program",
-    type: 'workout',
-    isPrivate: true,
-    collections: []
-  },
+  initialState,
   reducers: {
+    updateProgramName: (state , action) => state.name = action.payload,
     createCollection: (state, action) => {
       state.collections = [...state.collections, {
         id: nanoid(),
-        ...collection
+        ...Collection
       }]
     },
-    removeCollection: (state, action) => state.collections.filter(c => c.id !== action.payload),
+    removeCollection: (state, action) => state.collections = state.collections.filter(c => c.id !== action.payload),
     updateCollection: (state, action) => {
-      state.collections.map(collection => {
-        if (collection.id == action.payload.id) {
-          if (action.payload.key == 'name') return collection.updateName(value)
+      state.collections = state.collections.map(col => {
+        if(col.id == action.payload.id) {
+          return {...Collection, [action.payload.key]: action.payload.value}
         }
-        return collection
+        return col
       })
     },
     addItemInCollection: (state, action) => {
-      state.collections.map(collection => {
+      state.collections = state.collections.map(collection => {
         if (collection.id == id)
           return {
             ...collection,
@@ -40,7 +45,7 @@ const program = createSlice({
       })
     },
     removeItemFromCollection: (state, action) => {
-      state.collections.map(collection => {
+      state.collections = state.collections.map(collection => {
         if (collection.id == action.payload.id)
           return {
             ...collection,
@@ -64,6 +69,7 @@ const program = createSlice({
 })
 
 export const {
+  updateProgramName,
   createCollection,
   updateCollection,
   removeCollection,

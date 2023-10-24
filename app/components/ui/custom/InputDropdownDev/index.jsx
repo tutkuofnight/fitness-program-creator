@@ -26,7 +26,7 @@ export default (props) => {
   } , [status])
 
   useEffect(() => {
-    setDropdown(moves.filter(item => item.toLowerCase().includes(text)))
+    setDropdown(moves.filter(item => item.value.toLowerCase().includes(text)))
   } , [text])
 
   return (
