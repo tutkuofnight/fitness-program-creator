@@ -3,12 +3,16 @@ import {useRouter} from 'next/navigation'
 import Image from 'next/image'
 import {useSession , signIn } from 'next-auth/react'
 import { Button } from './components/ui/button'
+import axios from 'axios'
 export default function Page() {
   
   const router = useRouter()
   const { data:session } = useSession() 
 
-  if(session && session.user) return router.push('/home')
+  if(session && session.user) {
+    // axios.post('/api/user/checkout' , session.user)
+    return router.push('/home')
+  }
 
   return (
     <main>

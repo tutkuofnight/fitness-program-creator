@@ -7,13 +7,17 @@ import {useSession , signOut} from 'next-auth/react'
 import { Button } from '@/components/ui/button'
 import { Edit2 } from 'lucide-react'
 import { Swiper, SwiperSlide } from 'swiper/react';
+import axios from 'axios'
 export default function Home(){
   const {data: session} = useSession()
 
   const day = () => {
     return daylist[new Date().getDay() - 1].name
   }
-  console.log(session)
+  if(session && session.user) {
+    // const response = axios.post('/api/user/checkout' , session.user)
+    // console.log(response)
+  }
   return (
     <div>
       
@@ -51,8 +55,6 @@ export default function Home(){
             <Swiper
               spaceBetween={20}
               slidesPerView={'auto'}
-              onSlideChange={() => console.log('slide change')}
-              onSwiper={(swiper) => console.log(swiper)}
             >
               <SwiperSlide>
                 <Collection />

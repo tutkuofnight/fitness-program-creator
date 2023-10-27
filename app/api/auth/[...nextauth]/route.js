@@ -10,21 +10,23 @@ const handler = NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     })
   ],
-  async signIn({profile}){
-    try {
-      const user = await prisma.user.findUnique({
-        where: {
-          email: profile.email
-        }
-      })
-      if(!user) {
-        const response = await prisma.user.create({
-          data: profile
-        })
-      }
-    } catch (error) {
-      console.log("catch block" , error)
-    }
+  async signIn(req){
+    const data = await req.json()
+    console.log('api data ' , data)
+    // try {
+    //   const user = await prisma.user.findUnique({
+    //     where: {
+    //       email: profile.email
+    //     }
+    //   })
+    //   if(!user) {
+    //     const response = await prisma.user.create({
+    //       data: profile
+    //     })
+    //   }
+    // } catch (error) {
+    //   console.log("catch block" , error)
+    // }
   }
 })
 
