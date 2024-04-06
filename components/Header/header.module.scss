@@ -1,0 +1,14 @@
+@import "@/styles/mixins";
+
+.appHeader {
+  border-bottom: 1px solid #333;
+  padding: 1rem 2rem;
+  margin-bottom: 40px;
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include container;
+  }
+}
+
